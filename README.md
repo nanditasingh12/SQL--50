@@ -58,6 +58,30 @@ from Tweets
 where
 char_length(content) > 15;
 
+////////////////////////////////////
+TOPIC ON JOINT OPERATION
+Problem 6:
+Write a solution to show the unique ID of each user, If a user does not have a unique ID replace just show null.
+Return the result table in any order.
+The result format is in the following example.
+
+QUERY:
+Solution:
+Select u.unique_id as unique_id, n.name as name
+from Employees n left join EmployeeUNI u
+on 
+n.id=u.id   
+
+Problem 7:
+Write a solution to report the product_name, year, and price for each sale_id in the Sales table.
+Return the resulting table in any order.
+The result format is in the following example.
+
+QUERY:
+Solution:
+Select product_name,year,price
+from Sales s join product p on s.product_id = p.product_id
+
 
 
  
