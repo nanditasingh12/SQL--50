@@ -82,6 +82,20 @@ Solution:
 Select product_name,year,price
 from Sales s join product p on s.product_id = p.product_id
 
+Problem 8:
+Write a solution to find the IDs of the users who visited without making any transactions and the number of times they made these types of visits.
+Return the result table sorted in any order.
+The result format is in the following example.
+
+QUERY 
+Solution:
+Select customer_id
+COUNT(v.visit_id) as count_no_trans
+from Visits v
+LEFT JOIN Transactions t on v.visit_id = t.visit_id
+where transaction_id is  null
+group by customer_id
+
 
 
  
