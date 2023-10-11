@@ -97,5 +97,34 @@ where transaction_id is  null
 group by customer_id
 
 
+Problem 9:
+Write a solution to find all dates' Id with higher temperatures compared to its previous dates (yesterday).
+Return the result table in any order.
+The result format is in the following example.
+
+QUERY
+Solution:
+Select w1.id
+from Weather 1,Weather 2
+where DATEDIFF(w1.recordDate,w2.recordDate) = 1
+AND w1.temperature > w2.temperature
+
+
+Problem 10:
+There is a factory website that has several machines each running the same number of processes. Write a solution to find the average time each machine takes to complete a process.
+The time to complete a process is the 'end' timestamp minus the 'start' timestamp. The average time is calculated by the total time to complete every process on the machine divided by the number of processes that were run.The resulting table should have the machine_id along with the average time as processing_time, which should be rounded to 3 decimal places.
+Return the result table in any order.
+
+QUERY
+Solution
+Select a1.machine_id,round(avg(a2.timestamp-a1.timestamp),3) as processing_time
+from Activity 1
+Join Activity 2
+on a1.machine_id = a2.machine_id and
+a1.process_id = a2.process_id
+and a1.activity_type = 'start'
+and a2.activity_type = 'end'
+group by a1.machine_id
+
 
  
