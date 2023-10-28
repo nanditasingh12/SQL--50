@@ -139,6 +139,20 @@ left join Bonus on Employee.empID = Bonus.empID
 where bonus <  1000 
 or bonus is null;
 
+Problem 12:
+Write a solution to find managers with at least five direct reports.
+Return the result table in any order.
+
+QUERY 
+Solution:
+Select name 
+From Employee
+where managerId In
+(Select managerId
+From Employee
+Group By managerId
+Having Count (id) >= 5)
+
  
 
  
